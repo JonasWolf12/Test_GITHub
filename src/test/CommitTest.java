@@ -1,6 +1,6 @@
 package test;
 
-public class commitTest {
+public class CommitTest {
 
 	public static void main(String[] args) {
 
