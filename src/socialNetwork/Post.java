@@ -1,25 +1,36 @@
 package socialNetwork;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public abstract class Post {
 
-	public long timestamp;
-	public int likes;
-	ArrayList<Comments>comments = new ArrayList<>();
+	private String username;
+	private LocalDateTime timestamp;
+	private int likes;
+	ArrayList<Comments>comments;
 	
 	
-	public Post(long timestamp, int likes, ArrayList<Comments> comments) {
+	
+	public Post(String username) {
 		super();
-		this.timestamp = timestamp;
-		this.likes = likes;
-		this.comments = comments;
+		this.username = username;
+		this.timestamp = LocalDateTime.now();
+		this.likes = 0;
+		this.comments = new ArrayList<>();
 		
 	}
-	public long getTimestamp() {
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public LocalDateTime getTimestamp() {
 		return timestamp;
 	}
-	public void setTimestamp(long timestamp) {
+	public void setTimestamp(LocalDateTime timestamp) {
 		this.timestamp = timestamp;
 	}
 	public int getLikes() {
@@ -40,23 +51,25 @@ public abstract class Post {
 	}
 	
 	
-	public void addPost() {
-		
-	}
 	
-	public void removePost() {
-		
-	}
 	
 	public void addLike() {
-		
+		this.likes ++;
 	}
 	
 	
 	public void removeLike() {
-		
+		if(this.likes > 0) {
+			this.likes --;
+		}
 	}
 	
+	public void time() {
+		long timeOfPost = ChronoUnit.DAYS.between(getTimestamp(), LocalDateTime.now());
+		if(timeOfPost > 60) {
+			
+		}
 	
 	
-}
+	
+

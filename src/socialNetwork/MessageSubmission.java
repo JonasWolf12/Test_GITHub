@@ -8,8 +8,8 @@ public class MessageSubmission extends Post {
 	
 	
 
-	public MessageSubmission(long timestamp, int likes, ArrayList<Comments> comments, String textmassage) {
-		super(timestamp, likes, comments);
+	public MessageSubmission(String username, String textmassage) {
+		super(username);
 		this.textmassage = textmassage;
 	}
 

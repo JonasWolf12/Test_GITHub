@@ -4,31 +4,43 @@ import java.util.ArrayList;
 
 public class PhotoSubmission extends Post {
 
-	private String dataName;
-	private String captionOfThePicture;
+	private String headline;
+	private String picture;
 	
-	public PhotoSubmission(long timestamp, int likes, ArrayList<Comments> comments, String dataName,
-			String captionOfThePicture) {
-		super(timestamp, likes, comments);
-		this.dataName = dataName;
-		this.captionOfThePicture = captionOfThePicture;
+	
+
+	public PhotoSubmission(String username, String headline,
+			String picture) {
+		super(username);
+		this.headline = headline;
+		this.picture = picture;
 	}
 
-	public String getDataName() {
-		return dataName;
+
+
+	public String getHeadline() {
+		return headline;
 	}
 
-	public void setDataName(String dataName) {
-		this.dataName = dataName;
+
+
+	public void setHeadline(String headline) {
+		this.headline = headline;
 	}
 
-	public String getCaptionOfThePicture() {
-		return captionOfThePicture;
+
+
+	public String getPicture() {
+		return picture;
 	}
 
-	public void setCaptionOfThePicture(String captionOfThePicture) {
-		this.captionOfThePicture = captionOfThePicture;
+
+
+	public void setPicture(String picture) {
+		this.picture = picture;
 	}
+
+	
 	
 	
 }
