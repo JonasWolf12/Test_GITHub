@@ -1,12 +1,13 @@
 package stack;
-import java.util.Stack;
+import java.util.LinkedList;
+
 
 public class Aufgabe1 {
 
     public static String reverseString(String input) {
-        Stack<Character> stack = new Stack<>();
-        for (int i = 0; i < input.length(); i++) {
-            stack.push(input.charAt(i));
+        LinkedList<Character> stack = new LinkedList<>();
+        for (char c : input.toCharArray()) {
+            stack.push(c);
         }
         StringBuilder reversed = new StringBuilder();
         
@@ -19,8 +20,8 @@ public class Aufgabe1 {
 
     public static void main(String[] args) {
         String input = "Hello, World!";
-        String reversed = reverseString(input);
-        System.out.println("Original: " + input);
-        System.out.println("Reversed: " + reversed);
+        String output = reverseString(input);
+        System.out.println(output);
+        
     }
 }

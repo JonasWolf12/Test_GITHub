@@ -13,37 +13,43 @@ public class Aufgabe2 {
 	 *   Klammern korrekt geschachtelt sind, und "Fehlerhafte Klammerung!" sonst.
 	 */
 	
-	private static final Pattern klammern = Pattern.compile(
-			"(|)|[|]|{|}"
-		);
+	
+	
+	public static boolean checkBrackets(String input) {
+		LinkedList<Character> stack = new LinkedList<>();
+		for(char c : input.toCharArray()) {
+			if(c == '(' || c == '{' || c == '[') {
+				stack.push(c);
+			} else if(c == ')' || c == '}' || c == ']') {
+				if(stack.isEmpty()) {
+					return false;
+				}
+				char lastOpen = stack.peek();
+				if((c == ')' && lastOpen != '(') ||
+				   (c == '}' && lastOpen != '{') ||
+				   (c == ']' && lastOpen != '[')) {
+				  return false;
+				}
+				stack.pop();
+				
+			}
+
+		} 
+		return stack.isEmpty();
+				
+		
+	}
+	
 	
 	
 	public static void main(String[] args) {
 		
+		String str = "(()))";
+		System.out.println(checkBrackets(str));
 		
  
 	}
 	
 	
-	private static boolean sameNumberOfClosedBrackets(String input) {
-		LinkedList<Character> brackets = new LinkedList<>();
-		char bracketNow ="";
-        for (int i = 0; i < input.length(); i++) {
-        	if(input.matches(klammern)) {
-        		brackets.push(input.charAt(i));
-        		char bracketNow ="";
-        	}
-        	if(brackets.getLast().equals(bracketNow)) {
-        		brackets.pop();
-        	}
-        	
-        }
-        
-        String reversed = "";
-        while (!brackets.isEmpty()) {
-        	reversed += brackets.pop();
-        }
-		return ;		
-	}
- 
+	
 }
